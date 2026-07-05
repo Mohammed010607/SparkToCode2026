@@ -29,4 +29,5 @@
   <Project Path="../C# Fundamentals Tasks/Part 3/Task9_RoundUp_RoundDown_Explorer/Task9_RoundUp_RoundDown_Explorer.csproj" Id="4fa63175-e332-4898-9a54-dc234e1e20df" />
   <Project Path="../C# Fundamentals Tasks/Part 3/Task10_Word_Position_Finder/Task10_Word_Position_Finder.csproj" Id="45e11397-25c0-40ee-a302-a2d1e2f8fb59" />
   <Project Path="../C# Fundamentals Tasks/Part 3/Task11_OTP_Generator/Task11_OTP_Generator.csproj" Id="e2a3b28f-c3bc-4200-993e-f7af5efb70a1" />
+  <Project Path="../C# Fundamentals Tasks/Part 3/Task12_Birthday_Insights/Task12_Birthday_Insights.csproj" Id="f6c2782a-74d2-4e6e-8d7d-c0bf3929f9e7" />
 </Solution>
