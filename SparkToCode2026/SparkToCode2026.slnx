@@ -27,4 +27,5 @@
   <Project Path="../C# Fundamentals Tasks/Part 3/Task7_Clean_Name_Comparator/Task7_Clean_Name_Comparator.csproj" Id="0d712bf5-2b46-4e79-8961-ea35f96e6f9c" />
   <Project Path="../C# Fundamentals Tasks/Part 3/Task8_Membership_Expiry_Checker/Task8_Membership_Expiry_Checker.csproj" Id="ec2c2e74-5c8d-4d39-a829-7304e329404e" />
   <Project Path="../C# Fundamentals Tasks/Part 3/Task9_RoundUp_RoundDown_Explorer/Task9_RoundUp_RoundDown_Explorer.csproj" Id="4fa63175-e332-4898-9a54-dc234e1e20df" />
+  <Project Path="../C# Fundamentals Tasks/Part 3/Task10_Word_Position_Finder/Task10_Word_Position_Finder.csproj" Id="45e11397-25c0-40ee-a302-a2d1e2f8fb59" />
 </Solution>
