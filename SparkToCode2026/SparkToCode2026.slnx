@@ -32,5 +32,6 @@
   <Project Path="../C# Fundamentals Tasks/Part 3/Task8_Membership_Expiry_Checker/Task8_Membership_Expiry_Checker.csproj" Id="ec2c2e74-5c8d-4d39-a829-7304e329404e" />
   <Project Path="../C# Fundamentals Tasks/Part 3/Task9_RoundUp_RoundDown_Explorer/Task9_RoundUp_RoundDown_Explorer.csproj" Id="4fa63175-e332-4898-9a54-dc234e1e20df" />
   <Project Path="../C# Fundamentals Tasks/Part 4/Task1_Personalized_Welcome_Function/Task1_Personalized_Welcome_Function.csproj" Id="09a93564-6223-4d52-958d-fc5d0ef9eb54" />
+  <Project Path="../C# Fundamentals Tasks/Part 4/Task2_Square_Number_Function/Task2_Square_Number_Function.csproj" Id="32ea718e-8a87-4f0e-857d-a659628b2be8" />
   <Project Path="Task1_Absolute_Difference/Task1_Absolute_Difference.csproj" Id="633752ff-cfd8-47a8-b742-976b84b1c271" />
 </Solution>
