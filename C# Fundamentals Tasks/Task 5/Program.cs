@@ -29,7 +29,7 @@
                 Console.WriteLine("Enter task " + (i + 1) + ": " );
                 toDoList.Add(Console.ReadLine());
             }
-            */
+            
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,6 +46,20 @@
             }
             string prevPage = history.Pop();
             Console.WriteLine("Previous Page is: " + prevPage);
+            */
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            // Task 4 (Customer Service Queue)
+            Queue<string> waitingLine = new Queue<string>();
+            Console.WriteLine("Enter 3 Customer Nmaes: ");
+            Console.WriteLine("");
+            for(int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Customer "+(i+1)+": ");
+                waitingLine.Enqueue(Console.ReadLine());
+            }
+            Console.WriteLine("First Customer in Line is: "+ waitingLine.Dequeue());
         }
     }
 }
