@@ -2,6 +2,40 @@
 {
     internal class Program
     {
+        /*
+         // Functions For Task 9 (Grade Analyzer With Functions):
+        static double CalculateAverage(List<int> results)
+        {
+
+            int sumation = 0;
+            for (int i = 0; i < results.Count; i++)
+            {
+                sumation = sumation + results[i];
+            }
+            return sumation / Convert.ToDouble(results.Count);
+        }
+
+        static int FindFirstFailing(List<int> results)
+        {
+            return results.Find(score => score < 60);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        */
+
+        // Function For Task 10 (Print Queue Manager):
+        static Queue<string> RemoveJob(Queue<string> printQueue, string jobName)
+        {
+            Queue<string> newQueue = new Queue<string>();
+            while (printQueue.Count > 0)
+            {
+                string job = printQueue.Dequeue();
+                if (job != jobName)
+                {
+                    newQueue.Enqueue(job);
+                }
+            }
+            return newQueue;
+        }
         static void Main(string[] args)
         {
             /*
@@ -129,7 +163,7 @@
             Console.WriteLine("1st Place: " + gameScores[0]);
             Console.WriteLine("2nd Place: " + gameScores[1]);
             Console.WriteLine("3rd Place: " + gameScores[2]);
-            */
+            
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //Task 8 (Undo Last Action)
@@ -152,7 +186,63 @@
             {
                 Console.WriteLine("Final List: "+action);
             }
+            
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        }
+            // Task 9 (Grade Analyzer With Function)
+            Console.WriteLine("How Many Grades Would You Like To Enter: ");
+            List<int> results = new List<int>();
+            int gradeAmount = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < gradeAmount; i++)
+            {
+                Console.WriteLine("Enter Grade "+(i+1)+":");
+                results.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            double avg = CalculateAverage(results);
+            int firstFailing = FindFirstFailing(results);
+            Console.WriteLine("The Average Of The Marsks is: " + avg);
+
+            if (firstFailing == 0) {
+                Console.WriteLine("Nothing is Failed");
+            }
+            else
+            {
+                Console.WriteLine("The First Failing Grade is: "+firstFailing);
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            */
+
+            //Task 10 (Print Queue Manager):
+
+            Queue<string> printQueue = new Queue<string>();
+            string jobEntry = "";
+            Console.WriteLine("Enter Printing Job Names: ");
+            while (jobEntry != "done")
+            {
+                jobEntry = Console.ReadLine();
+                if (jobEntry != "done")
+                {
+                    printQueue.Enqueue(jobEntry);
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Queue Before Cancellation: ");
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine(job);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Enter The Job Name To Cancel: ");
+            string cancelJob = Console.ReadLine();
+            printQueue = RemoveJob(printQueue, cancelJob);
+            Console.WriteLine("");
+            Console.WriteLine("Queue After Cancellation: ");
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine(job);
+            }
+
+        }     
+
     }
 }
