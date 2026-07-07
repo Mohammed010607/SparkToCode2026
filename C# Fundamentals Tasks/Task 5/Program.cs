@@ -19,7 +19,7 @@
                 Console.WriteLine(grade);
             }
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-            */
+            
 
             //Task 2 (Dynamic To-Do List)
             List<string>toDoList = new List<string>();
@@ -29,6 +29,23 @@
                 Console.WriteLine("Enter task " + (i + 1) + ": " );
                 toDoList.Add(Console.ReadLine());
             }
+            */
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            // Task 3 (Browsing History Stack)
+            Stack<string> history = new Stack<string>();
+            Console.WriteLine("Enter 3 Website URLs: ");
+            Console.WriteLine("");
+            for(int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("URL "+(i + 1).ToString() + ": ");
+                string URL = Console.ReadLine();
+                history.Push(URL);
+            }
+            string prevPage = history.Pop();
+            Console.WriteLine("Previous Page is: " + prevPage);
         }
     }
 }
