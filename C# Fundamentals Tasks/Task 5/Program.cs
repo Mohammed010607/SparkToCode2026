@@ -97,7 +97,7 @@
             {
                 if(stopping != "done")
                 {
-                    shoppingList.Add(Console.ReadLine());
+                    shoppingList.Add(stopping);
                 } 
                 
             }
@@ -110,7 +110,7 @@
             foreach (string entry in shoppingList) {
                 Console.WriteLine(entry);
             }
-            */
+            
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //Task 7 (High Score Podium): 
@@ -129,6 +129,30 @@
             Console.WriteLine("1st Place: " + gameScores[0]);
             Console.WriteLine("2nd Place: " + gameScores[1]);
             Console.WriteLine("3rd Place: " + gameScores[2]);
+            */
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //Task 8 (Undo Last Action)
+            Stack<string> undoLast = new Stack<string>();
+            string terminate = "";
+            Console.WriteLine("Enter Any Action: ");
+            while (terminate != "stop")
+            {
+                terminate = Console.ReadLine();
+                if (terminate != "stop")
+                {
+                    undoLast.Push(terminate);
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Removed Value: "+undoLast.Pop());
+            Console.WriteLine("Removed Value: "+undoLast.Pop());
+            Console.WriteLine("");
+            foreach (string action in undoLast)
+            {
+                Console.WriteLine("Final List: "+action);
+            }
+
         }
     }
 }
