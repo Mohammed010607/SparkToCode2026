@@ -55,9 +55,11 @@ namespace BankingSystemApp
                         break;
                     case 6:
                         // TODO: call your first custom service function here
+                        AccountTier();
                         break;
                     case 7:
                         // TODO: call your second custom service function here
+                        
                         break;
                     case 8:
                         exitApp = true;
@@ -296,5 +298,7 @@ namespace BankingSystemApp
             Console.WriteLine("Balance: " + balance);
             Console.WriteLine("Tier: " + tier);
         }
+
+        static void 
     }
 }
