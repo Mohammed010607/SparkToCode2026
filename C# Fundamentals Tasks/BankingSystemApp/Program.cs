@@ -121,7 +121,7 @@ namespace BankingSystemApp
 
             if(index == -1)
             {
-                Console.WriteLine("Error, Account Doesnt Exist.");
+                Console.WriteLine("Error, Account Does Not Exist.");
                 
             }
             else
@@ -143,7 +143,29 @@ namespace BankingSystemApp
         static void WithdrawMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.WriteLine("\nEnter Your Account Number: ");
+            string existingAccount = Console.ReadLine().ToUpper();
+            int index = accountNumbers.IndexOf(existingAccount);
+            
+            if (index == -1)
+            {
+                Console.WriteLine("Error, Account Does Not Exist.");
+            }
+            else
+            {
+                Console.WriteLine("\nEnter A Withdrawl Ammount: ");
+                double withdrawl = double.Parse(Console.ReadLine());
 
+                if (withdrawl <= 0 || withdrawl > balances[index])
+                {
+                    Console.WriteLine("Error, Bank Overdraft or Withdrawl is Less than Zero.");
+                }
+                else
+                {
+                    double newTotal = balances[index] - withdrawl;
+                    Console.WriteLine("Updated Balance: " + newTotal);
+                }
+            }
         }
         static void ShowBalance()
         {
