@@ -309,7 +309,7 @@ namespace BankingSystemApp
                 return;
             }
 
-            Console.WriteLine("\n===== All Accounts =====");
+            Console.WriteLine("\n-------- All Accounts --------");
             for (int i = 0; i < customerNames.Count; i++)
             {
                 Console.WriteLine("Name: " + customerNames[i]);
