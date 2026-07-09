@@ -84,12 +84,22 @@ namespace BankingSystemApp
             if(accountNumbers.Contains(accountNum))
             {
                 Console.WriteLine("Error.");
+                return;
             }
             Console.WriteLine("Enter Your Initial Deposit Amount: ");
-            double depositAmount = double.Parse(Console.ReadLine());
-            while (depositAmount < 0)
+            double depositAmount;
+            try
             {
-                if (depositAmount < 0)
+                depositAmount = double.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error, Invalid Number Input.");
+                return;
+            }
+            while (depositAmount <= 0)
+            {
+                if (depositAmount <= 0)
                 {
                     Console.WriteLine("Invalid Amount, Try Again:");
                     depositAmount = double.Parse(Console.ReadLine());
@@ -127,7 +137,17 @@ namespace BankingSystemApp
             else
             {
                 Console.WriteLine("Please Enter The Deposit Amount: ");
-                double amount = double.Parse(Console.ReadLine());
+                double amount;
+                try
+                {
+                    amount = double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error, Invalid Number Entered.");
+                    return;
+                }
+
                 if(amount <= 0)
                 {
                     Console.WriteLine("Error, Ammount Cannot Be Zero or Below.");
@@ -154,7 +174,16 @@ namespace BankingSystemApp
             else
             {
                 Console.WriteLine("\nEnter A Withdrawl Ammount: ");
-                double withdrawl = double.Parse(Console.ReadLine());
+                double withdrawl;
+                try
+                {
+                    withdrawl = double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error, Invalid Number Entered.");
+                    return;
+                }
 
                 if (withdrawl <= 0 || withdrawl > balances[index])
                 {
