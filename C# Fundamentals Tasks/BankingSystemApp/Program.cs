@@ -22,8 +22,8 @@ namespace BankingSystemApp
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. <your 1st custom service - choose a name>");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("6. Account Tier");
+                Console.WriteLine("7. List All Accounts");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -255,5 +255,46 @@ namespace BankingSystemApp
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
+        static void AccountTier()
+        {
+            Console.WriteLine("\nEnter Your Account Number: ");
+            string existingAccount = Console.ReadLine().ToUpper();
+            int index = accountNumbers.IndexOf(existingAccount);
+
+            if(index == -1)
+            {
+                Console.WriteLine("Error, Account Does Not Exist");
+                return;
+            }
+
+            double balance = balances[index];
+            string tier;
+            if(balance > 30000)
+            {
+                tier = "Diamond";
+            }
+            else if(balance >= 20000)
+            {
+                tier = "Gold";
+            }
+            else if(balance >= 15000)
+            {
+                tier = "Silver";
+            }
+            else if(balance >= 10000)
+            {
+                tier = "Bronze";
+            }
+            else
+            {
+                tier = "Standard";
+            }
+
+            Console.WriteLine("\nAccount Tier: ");
+            Console.WriteLine("Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Balance: " + balance);
+            Console.WriteLine("Tier: " + tier);
+        }
     }
 }
