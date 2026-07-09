@@ -135,7 +135,7 @@ namespace BankingSystemApp
                 else
                 {
                     balances[index] += amount;
-                    Console.WriteLine("\nYour Updated Balance: " + amount);
+                    Console.WriteLine("\nYour Updated Balance: " + balances[index]);
                 }
                 
             }
