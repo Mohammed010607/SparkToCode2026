@@ -83,7 +83,7 @@ namespace BankingSystemApp
             string accountNum =Console.ReadLine().ToUpper();
             if(accountNumbers.Contains(accountNum))
             {
-                Console.WriteLine("Error.");
+                Console.WriteLine("Error, Account Number Already Exists.");
                 return;
             }
             Console.WriteLine("Enter Your Initial Deposit Amount: ");
@@ -97,9 +97,9 @@ namespace BankingSystemApp
                 Console.WriteLine("Error, Invalid Number Input.");
                 return;
             }
-            while (depositAmount <= 0)
+            while (depositAmount < 0)
             {
-                if (depositAmount <= 0)
+                if (depositAmount < 0)
                 {
                     Console.WriteLine("Invalid Amount, Try Again:");
                     depositAmount = double.Parse(Console.ReadLine());
@@ -114,12 +114,9 @@ namespace BankingSystemApp
             accountNumbers.Add(accountNum);
             balances.Add(depositAmount);
             Console.WriteLine("\nAccount Details:");
-            for (int i = 0; i < customerNames.Count; i++) {
-                Console.WriteLine("Name: "+customerNames[i]);
-                Console.WriteLine("Account Number: "+accountNumbers[i]);
-                Console.WriteLine("Balance: "+balances[i]);
-                Console.WriteLine();
-            }
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Account Number: " + accountNum);
+            Console.WriteLine("Balance: " + depositAmount);
         }
         static void DepositMoney()
         {
@@ -199,7 +196,7 @@ namespace BankingSystemApp
         static void ShowBalance()
         {
             // TODO: implement this service (see Section 3 requirements)
-            Console.WriteLine("Enter Your Account Number: ");
+            Console.WriteLine("\nEnter Your Account Number: ");
             string existingAccount = Console.ReadLine().ToUpper();
             int index = accountNumbers.IndexOf(existingAccount);
 
@@ -222,6 +219,42 @@ namespace BankingSystemApp
         static void TransferAmount()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.WriteLine("\nEnter The Sender's Account Number: ");
+            string senderAccount = Console.ReadLine().ToUpper();
+            Console.WriteLine("Enter Receiver's Account Number: ");
+            string recievrAccount = Console.ReadLine().ToUpper();
+            int index1 = accountNumbers.IndexOf(senderAccount);
+            int index2 = accountNumbers.IndexOf(recievrAccount);
+
+            if(index1 == -1 || index2 == -1){
+                Console.WriteLine("Error, Invalid Account Number.");
+            }
+            else {
+                Console.WriteLine("Please Enter The Transfer Amount: ");
+                double transferQuantity;
+                try
+                {
+                    transferQuantity = double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error, Invalid Amount Entered. ");
+                    return;
+                }
+                if (transferQuantity > balances[index1])
+                {
+                    Console.WriteLine("Error, Insufficient Amount");
+                }
+                else
+                {
+                    balances[index1] -= transferQuantity;
+                    balances[index2] += transferQuantity;
+
+                    Console.WriteLine("\nUpdated Balance For " + accountNumbers[index1] + " Is: " + balances[index1]);
+                    Console.WriteLine("Updated Balance For " + accountNumbers[index2] + " Is: " + balances[index2]);
+                }
+
+            }
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
