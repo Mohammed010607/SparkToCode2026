@@ -109,7 +109,7 @@
             {
                 Console.WriteLine("\nInvalid Input.");
             }
-            */
+            
 
             // Case 3 (Make A Deposit):
             Console.WriteLine("Select a Bank Account: ");
@@ -135,6 +135,34 @@
             else
             {
                 Console.WriteLine("Account Doesn't Exist.");
+            }
+            */
+
+            //Case 4 (Make A Withdrawl):
+            Console.WriteLine("Select a Bank Account: ");
+            Console.WriteLine(account1.AccountNumber);
+            Console.WriteLine(account2.AccountNumber);
+            int selectedAccount = int.Parse(Console.ReadLine());
+            double withdrawAmount;
+
+            if (selectedAccount == account1.AccountNumber)
+            {
+                Console.WriteLine("\nEnter a Withdrawl Amount: ");
+                withdrawAmount = double.Parse(Console.ReadLine());
+                account1.Withdraw(withdrawAmount);
+                Console.WriteLine("Account Holder: " + account1.HolderName);
+                Console.WriteLine("Updated Balance: " + account1.Balance);
+            }
+            else if (selectedAccount == account2.AccountNumber) {
+                Console.WriteLine("\nEnter a Withdrawl Amount: ");
+                withdrawAmount = double.Parse(Console.ReadLine());
+                account2.Withdraw(withdrawAmount);
+                Console.WriteLine("Account Holder: " + account2.HolderName);
+                Console.WriteLine("Updated Balance: " + account2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Account Doesn't Exist");
             }
         }
     }
