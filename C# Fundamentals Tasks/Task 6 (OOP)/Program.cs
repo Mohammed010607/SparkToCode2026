@@ -4,7 +4,47 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            BankAccount account1 = new BankAccount
+            {
+                AccountNumber = 123,
+                HolderName = "Mohammed",
+                Balance = 205.5
+            };
+
+            BankAccount account2 = new BankAccount
+            {
+                AccountNumber = 246,
+                HolderName = "Ahmed",
+                Balance = 427.9
+            };
+
+            Student student1 = new Student
+            {
+                Grade = 78,
+                Name = "Sara",
+                Address = "Seeb",
+            };
+
+            Student student2 = new Student
+            {
+                Grade = 83,
+                Name = "Ali",
+                Address = "Muscat"
+            };
+
+            Product product1 = new Product
+            {
+                ProductName = "Nvidia RTX 5070",
+                Price = 255,
+                StockQuantity = 32,
+            };
+
+            Product product2 = new Product
+            {
+                ProductName = "AMD Ryzen 7 9800X3D",
+                Price = 210.5,
+                StockQuantity = 78,
+            };
         }
     }
 
