@@ -36,10 +36,18 @@
             PrintInformation();
             return Balance;
         }
+
         private void PrintInformation()
         {
             Console.WriteLine("Name: " + HolderName);
             Console.WriteLine("Balance: " + Balance);
         }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Email Notification Sent.");
+        }
     }
+
+
 }
