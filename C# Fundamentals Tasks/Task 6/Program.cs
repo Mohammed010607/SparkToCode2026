@@ -406,7 +406,6 @@
             {
                 Console.WriteLine("Premium");
             }
-            */
 
             // Case 13 (Bulk Sale With Revenue Calculation)
 
@@ -435,6 +434,53 @@
                 chosenProduct.Sell(sellQuantity);
                 Console.WriteLine("Sale: " + chosenProduct.Price * sellQuantity+" OMR");
             }
+            */
+
+            //---------------------------------ADVANCED (Case 14-15)-----------------------------------
+            // Case 14 (Scholarship Eligibility Check)
+
+            Console.WriteLine("Pick A Student");
+            Console.WriteLine("- " + student1.Name);
+            Console.WriteLine("- " + student2.Name);
+            string chooseStudent = Console.ReadLine();
+
+            Student studentGrabbed;
+            if(chooseStudent == student1.Name)
+                studentGrabbed = student1;
+            else
+                studentGrabbed = student2;
+
+            Console.WriteLine("\nSelect an Account: ");
+            Console.WriteLine(account1.AccountNumber);
+            Console.WriteLine(account2.AccountNumber);
+            int chooseAccount = int.Parse(Console.ReadLine());
+
+            BankAccount accountGrabbed;
+            if (chooseAccount == account1.AccountNumber)
+                accountGrabbed = account1;
+            else
+                accountGrabbed= account2;
+
+
+            bool gradeCheck = studentGrabbed.Grade >= 80;
+            bool balanceCheck = accountGrabbed.Balance >= 100;
+            if(gradeCheck && balanceCheck)
+            {
+                Console.WriteLine("Eligible");
+            }
+            else if (!balanceCheck && !gradeCheck) 
+            {
+                Console.WriteLine("Not Eligible, Grade is Below 80 & Balance is Below 100");
+            }
+            else if (!gradeCheck)
+            {
+                Console.WriteLine("Not Eligible, Grade is below 80");
+            }
+            else
+            {
+                Console.WriteLine("Not Eligible, Balance is Below 100");
+            }
+
         }
     }
 
