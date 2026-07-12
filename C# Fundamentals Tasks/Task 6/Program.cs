@@ -45,7 +45,13 @@
                 Price = 210.5,
                 StockQuantity = 78,
             };
+
+            //Helpers:
+
+
             /*
+              
+             //---------------------------------------EASY (Case 1-5)-------------------------------------------------------------
             // Case 1 (View Account Details)
             int option;
             do
@@ -164,7 +170,6 @@
             {
                 Console.WriteLine("Account Doesn't Exist");
             }
-            */
 
             //Case 5 (View Product Details):
             Console.WriteLine("Select The Product By Number: ");
@@ -183,6 +188,32 @@
             else
             {
                 Console.WriteLine("Invalid, Product Doesn't Exist.");
+            }
+            */
+
+            //-------------------------------MEDIUM (Case 6-8)----------------------------------------
+            // Case 6 (Register Student):
+            Console.WriteLine("Select A Student: ");
+            Console.WriteLine("1. "+ student1.Name);
+            Console.WriteLine("2. "+ student2.Name);
+            string studentPicked = Console.ReadLine();
+
+            if (studentPicked == student1.Name)
+            {
+                Console.WriteLine("Enter The Email: ");
+                string email = Console.ReadLine();
+                student1.Register(email);
+                Console.WriteLine("Registered Successfully.");
+            }
+            else if (studentPicked == student2.Name) {
+                Console.WriteLine("Enter The Email: ");
+                string email = Console.ReadLine();
+                student2.Register(email);
+                Console.WriteLine("Registered Successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid, Student Doesn't Exist.");
             }
         }
     }
