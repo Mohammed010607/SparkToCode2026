@@ -521,7 +521,6 @@
 
             // Case 17 (Total Students Counter [Static Fields & Methods]):
             Console.WriteLine("Total Students Created: " + Student.GetStudentCount());
-            */
 
             // Case 18 (Overdrawn Account Check [Read-Only Property]):
 
@@ -540,6 +539,25 @@
                 Console.WriteLine("The account is overdrawn.");
             else
                 Console.WriteLine("The account is not overdrawn.");
+            */
+
+            // Case 19 (Set Student Security PIN [Write-Only Property]):
+
+            Console.WriteLine("Pick A Student");
+            Console.WriteLine("- " + student1.Name);
+            Console.WriteLine("- " + student2.Name);
+            string pinStudentPicked = Console.ReadLine();
+
+            Student pinStudent;
+            if (pinStudentPicked == student1.Name)
+                pinStudent = student1;
+            else
+                pinStudent = student2;
+
+            Console.WriteLine("Enter a 4 Digit PIN: ");
+            int newPin = int.Parse(Console.ReadLine());
+            pinStudent.PIN = newPin;
+            Console.WriteLine("PIN set successfully.");
         }
     }
 
@@ -608,8 +626,6 @@
         private string email;
         int age;
 
-        //Case 17 (Total Students Counter [Static Fields & Methods]):
-
         public static int Count;
 
         public Student()
@@ -629,6 +645,13 @@
         private void SendEmail()
         {
             Console.WriteLine("Email Has Been Sent.");
+        }
+
+        private int pin;
+
+        public int PIN
+        {
+            set { pin = value; }
         }
     }
 
