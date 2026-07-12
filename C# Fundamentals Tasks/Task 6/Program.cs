@@ -229,6 +229,44 @@
                 Console.WriteLine("Both Accounts Have Equal Balances.");
             }
             */
+
+            //Case 8 (Restock Product & Stock Level Check):
+            Console.WriteLine("Select The Product By Number: ");
+            Console.WriteLine("1. " + product1.ProductName);
+            Console.WriteLine("2. " + product2.ProductName);
+            int pSelection = int.Parse(Console.ReadLine());
+            int restockQuantity;
+            Console.WriteLine();
+
+            if (pSelection == 1)
+            {
+                Console.WriteLine("Enter an Amount To Restock: ");
+                restockQuantity = int.Parse(Console.ReadLine());
+                product1.Restock(restockQuantity);
+
+                if (product1.StockQuantity < 10)
+                    Console.WriteLine("Stock is Low");
+                else if (product1.StockQuantity < 50)
+                    Console.WriteLine("Stock is Moderate");
+                else
+                    Console.WriteLine("Well Stocked");
+            }
+            else if (pSelection == 2) {
+                Console.WriteLine("Enter an Amount To Restock: ");
+                restockQuantity = int.Parse(Console.ReadLine());
+                product2.Restock(restockQuantity);
+
+                if (product2.StockQuantity < 10)
+                    Console.WriteLine("Stock is Low");
+                else if (product2.StockQuantity < 50)
+                    Console.WriteLine("Stock is Moderate");
+                else
+                    Console.WriteLine("Well Stocked");
+            }
+            else
+            {
+                Console.WriteLine("Invalid, Product Doesn't Exist.");
+            }
         }
     }
 
