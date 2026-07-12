@@ -19,6 +19,27 @@
             SendEmail();
         }
 
+        public void Withdraw(double amount) { 
+            if(Balance >= amount)
+            {
+                Balance -= amount;
+            }
+            else
+            {
+               Console.WriteLine("Insufficient Funds.");
+            }
+            SendEmail();
+        }
 
+        public double CheckBalance()
+        {
+            PrintInformation();
+            return Balance;
+        }
+        private void PrintInformation()
+        {
+            Console.WriteLine("Name: " + HolderName);
+            Console.WriteLine("Balance: " + Balance);
+        }
     }
 }
