@@ -506,7 +506,6 @@
             {
                 Console.WriteLine("No Top-Up is Needed.");
             }
-            */
 
             // Case 16 (Quick Account Opening [Parameterized Constructor]):
             Console.WriteLine("Enter Account Number: ");
@@ -519,6 +518,10 @@
             BankAccount newAccount = new BankAccount(newAccNum, newHolderName, newBalance);
             Console.WriteLine("Account Number: " + newAccount.AccountNumber);
             newAccount.CheckBalance();
+            */
+
+            // Case 17 (Total Students Counter [Static Fields & Methods]):
+            Console.WriteLine("Total Students Created: " + Student.GetStudentCount());
         }
     }
 
@@ -583,6 +586,18 @@
         private string email;
         int age;
 
+        //Case 17 (Total Students Counter [Static Fields & Methods]):
+
+        public static int Count;
+
+        public Student()
+        {
+            Count++;
+        }
+        public static int GetStudentCount()
+        {
+            return Count;
+        }
         public void Register(string Email)
         {
             email = Email;
