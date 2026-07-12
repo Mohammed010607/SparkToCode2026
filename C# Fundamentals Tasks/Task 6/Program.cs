@@ -479,7 +479,6 @@
             {
                 Console.WriteLine("Not Eligible, Balance is Below 100");
             }
-            */
 
             //Case 15 (Full Balance Top-Up Flow):
             Console.WriteLine("Select A B Account: ");
@@ -507,6 +506,19 @@
             {
                 Console.WriteLine("No Top-Up is Needed.");
             }
+            */
+
+            // Case 16 (Quick Account Opening [Parameterized Constructor]):
+            Console.WriteLine("Enter Account Number: ");
+            int newAccNum = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Holder Name: ");
+            string newHolderName = Console.ReadLine();
+            Console.WriteLine("Enter Starting Balance: ");
+            double newBalance = double.Parse(Console.ReadLine());
+
+            BankAccount newAccount = new BankAccount(newAccNum, newHolderName, newBalance);
+            Console.WriteLine("Account Number: " + newAccount.AccountNumber);
+            newAccount.CheckBalance();
         }
     }
 
@@ -516,6 +528,16 @@
         public int AccountNumber;
         public string HolderName;
         public double Balance;
+
+        public BankAccount() { }
+
+        //Case 16 (Quick Account Opening [Parameterized Constructor])
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
+        }
 
         public void Deposit(double amount) {
             Balance += amount;
