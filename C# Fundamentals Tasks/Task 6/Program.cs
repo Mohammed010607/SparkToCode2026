@@ -600,6 +600,10 @@
                     default:
                         Console.WriteLine("Invalid Input."); 
                         break;
+
+                    case 20:
+                        Console.WriteLine("Exiting...");
+                        break;
                 }
             }
             while (option != 20);
