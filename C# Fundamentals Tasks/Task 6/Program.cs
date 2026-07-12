@@ -378,7 +378,6 @@
             {
                Console.WriteLine("Status: Fail");
             }
-            */
 
             //Case 12 (Account Health Status)
             Console.WriteLine("Select an Account: ");
@@ -406,6 +405,35 @@
             else
             {
                 Console.WriteLine("Premium");
+            }
+            */
+
+            // Case 13 (Bulk Sale With Revenue Calculation)
+
+            Console.WriteLine("Select A Product To Sell:");
+            Console.WriteLine("1. "+product1.ProductName);
+            Console.WriteLine("2. " + product2.ProductName);
+            string productPicked = Console.ReadLine();
+            Console.WriteLine("\nEnter A Quantity To Sell: ");
+            int sellQuantity = int.Parse(Console.ReadLine());
+
+            Product chosenProduct;
+            if(productPicked == product1.ProductName)
+                chosenProduct = product1;
+            else
+                chosenProduct= product2;
+
+            int neededStock;
+            if(sellQuantity > chosenProduct.StockQuantity)
+            {
+                Console.WriteLine("Not Enough Stock.");
+                neededStock = sellQuantity - chosenProduct.StockQuantity;
+                Console.WriteLine("Additional " + neededStock + " Stock Needed");
+            }
+            else
+            {
+                chosenProduct.Sell(sellQuantity);
+                Console.WriteLine("Sale: " + chosenProduct.Price * sellQuantity+" OMR");
             }
         }
     }
