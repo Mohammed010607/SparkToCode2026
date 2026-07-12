@@ -313,7 +313,6 @@
             {
                 Console.WriteLine("Insufficient Funds.");
             }
-            */
 
             //Case 10 (Update Student Grade (Validated)):
             Console.WriteLine("Pick A Student");
@@ -348,7 +347,39 @@
             {
                 Console.WriteLine("Error, Input Must Be An Integer.");
             }
+            */
 
+            //Case 11 (Student Report Card)
+            Console.WriteLine("Pick A Student");
+            Console.WriteLine("- " + student1.Name);
+            Console.WriteLine("- " + student2.Name);
+            string pickedStudent = Console.ReadLine();
+
+            Student studentSelected;
+            if (pickedStudent == student1.Name)
+            {
+                studentSelected = student1;
+            }
+            else
+            {
+                studentSelected = student2;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("---------------REPORT-CARD---------------");
+            Console.WriteLine("Name: "+studentSelected.Name);
+            Console.WriteLine("Address: "+studentSelected.Address);
+            Console.WriteLine("Grade: "+studentSelected.Grade);
+
+            if(studentSelected.Grade >= 60)
+            {
+               Console.WriteLine("Status: Pass");
+            }
+            else
+            {
+               Console.WriteLine("Status: Fail");
+            }
+            
         }
     }
 
