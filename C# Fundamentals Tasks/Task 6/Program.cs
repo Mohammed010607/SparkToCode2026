@@ -136,7 +136,7 @@
             {
                 Console.WriteLine("Account Doesn't Exist.");
             }
-            */
+            
 
             //Case 4 (Make A Withdrawl):
             Console.WriteLine("Select a Bank Account: ");
@@ -163,6 +163,26 @@
             else
             {
                 Console.WriteLine("Account Doesn't Exist");
+            }
+            */
+
+            //Case 5 (View Product Details):
+            Console.WriteLine("Select The Product By Number: ");
+            Console.WriteLine("1. "+product1.ProductName);
+            Console.WriteLine("2. "+product2.ProductName);
+            int selection = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (selection == 1)
+            {
+                Console.WriteLine("Total Value: " + product1.GetInventoryValue());
+            }
+            else if (selection == 2) {
+                Console.WriteLine("Total Value: " + product2.GetInventoryValue());
+            }
+            else
+            {
+                Console.WriteLine("Invalid, Product Doesn't Exist.");
             }
         }
     }
@@ -259,7 +279,7 @@
         public double GetInventoryValue()
         {
             PrintDetails();
-            return Price * StockQuantity;
+            return  Price * StockQuantity;
         }
         private void PrintDetails()
         {
