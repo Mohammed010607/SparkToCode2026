@@ -347,7 +347,6 @@
             {
                 Console.WriteLine("Error, Input Must Be An Integer.");
             }
-            */
 
             //Case 11 (Student Report Card)
             Console.WriteLine("Pick A Student");
@@ -379,7 +378,35 @@
             {
                Console.WriteLine("Status: Fail");
             }
-            
+            */
+
+            //Case 12 (Account Health Status)
+            Console.WriteLine("Select an Account: ");
+            Console.WriteLine(account1.AccountNumber);
+            Console.WriteLine(account2.AccountNumber);
+            int pickedAccount = int.Parse(Console.ReadLine());
+
+            BankAccount picked;
+            if (pickedAccount == account1.AccountNumber)
+            {
+                picked = account1;
+            }
+            else
+            {
+                picked = account2;
+            }
+            Console.WriteLine("\nAccount Status: ");
+            if(picked.Balance < 50)
+            {
+                Console.WriteLine("Low Balance");
+            }
+            else if(picked.Balance >= 50 && picked.Balance <= 1000) {
+                Console.WriteLine("Healthy");
+            }
+            else
+            {
+                Console.WriteLine("Premium");
+            }
         }
     }
 
