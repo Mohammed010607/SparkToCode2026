@@ -111,7 +111,31 @@
             }
             */
 
-            
+            // Case 3 (Make A Deposit):
+            Console.WriteLine("Select a Bank Account: ");
+            Console.WriteLine(account1.AccountNumber); 
+            Console.WriteLine(account2.AccountNumber);
+            int selectedAccount = int.Parse(Console.ReadLine());
+            double amount;
+            if (selectedAccount == account1.AccountNumber)
+            {
+                Console.WriteLine("\nEnter a Deposit Amount: ");
+                amount = double.Parse(Console.ReadLine());
+                account1.Deposit(amount);
+                Console.WriteLine("Account Holder: " + account1.HolderName);
+                Console.WriteLine("Updated Balance: " + account1.Balance);
+            }
+            else if (selectedAccount == account2.AccountNumber) {
+                Console.WriteLine("\nEnter a Deposit Amount: ");
+                amount = double.Parse(Console.ReadLine());
+                account2.Deposit(amount);
+                Console.WriteLine("Account Holder: " + account2.HolderName);
+                Console.WriteLine("Updated Balance: " + account2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Account Doesn't Exist.");
+            }
         }
     }
 
