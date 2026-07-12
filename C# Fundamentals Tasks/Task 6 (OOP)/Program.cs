@@ -49,5 +49,23 @@
         }
     }
 
+    class Student
+    {
+        public int Grade;
+        public string Name;
+        public string Address;
+        private string email;
+        int age;
 
+        public void Register(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Email Has Been Sent.");
+        }
+    }
 }
