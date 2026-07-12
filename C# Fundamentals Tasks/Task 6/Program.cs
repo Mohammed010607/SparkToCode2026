@@ -45,7 +45,7 @@
                 Price = 210.5,
                 StockQuantity = 78,
             };
-
+            /*
             // Case 1 (View Account Details)
             int option;
             do
@@ -84,9 +84,38 @@
                 }
             }
             while (option != 2);
+            
+
+            //Case 2 (Update Student Address)
+            Console.WriteLine("Select a Student (1 or 2)");
+            Console.WriteLine("1. "+student1.Name);
+            Console.WriteLine("2. " + student2.Name);
+            int selection = int.Parse(Console.ReadLine());
+
+            if (selection == 1)
+            {
+                Console.WriteLine("\nEnter The New Address: ");
+                string updateAddress = Console.ReadLine();
+                student1.Address = updateAddress;
+                Console.WriteLine("Adress: " + student1.Address);
+            }
+            else if (selection == 2) {
+                Console.WriteLine("\nEnter The New Address: ");
+                string updateAddress = Console.ReadLine();
+                student2.Address = updateAddress;
+                Console.WriteLine("Address: " + student2.Address);
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid Input.");
+            }
+            */
+
+            
         }
     }
 
+    //Bank Account Class
     class BankAccount
     {
         public int AccountNumber;
@@ -128,6 +157,7 @@
         }
     }
 
+    //Student Class
     class Student
     {
         public int Grade;
@@ -148,6 +178,7 @@
         }
     }
 
+    //Product Class
     class Product
     {
         public string ProductName;
