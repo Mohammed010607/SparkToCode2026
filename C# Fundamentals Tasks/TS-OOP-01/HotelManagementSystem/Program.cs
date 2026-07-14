@@ -20,7 +20,7 @@
             Room room6 = new Room(206, "Suite", 100.00);
             rooms.Add(room6);
 
-            int option;
+            int option = -1;
             do
             {
                 Console.WriteLine("=============================================");
@@ -60,7 +60,11 @@
                     case 1:
                         Console.WriteLine("Enter a Room Number: ");
                         int selectedRoom = int.Parse(Console.ReadLine());
-                        if (rooms.Any(r => r.roomNumber == selectedRoom))
+                        if (selectedRoom <= 0)
+                        {
+                            Console.WriteLine("Room Number Must Be Positive.");
+                        }
+                        else if (rooms.Any(r => r.roomNumber == selectedRoom))
                         {
                             Console.WriteLine("Error: Room Already Exists.");
                         }
@@ -70,8 +74,38 @@
                             string roomType = Console.ReadLine();
                             Console.WriteLine("Enter The Room Price / Night: ");
                             double price = double.Parse(Console.ReadLine());
-                            Room newRoom = new Room(selectedRoom, roomType, price);
-                            Console.WriteLine("Sucessfully Added New Room.");
+                            if (price <= 0)
+                            {
+                                Console.WriteLine("Error, Price Must Be Positive.");
+                            }
+                            else
+                            {
+                                Room newRoom = new Room(selectedRoom, roomType, price);
+                                rooms.Add(newRoom);
+                                Console.WriteLine($"Sucessfully Added New Room. Total rooms:{rooms.Count}");
+                            }
+                        }
+                    break;
+
+                    case 2:
+                        Console.WriteLine("Please Enter Your Name: ");
+                        string name = Console.ReadLine();
+                        Console.WriteLine("Enter Your Checkin Date: ");
+                        string date = Console.ReadLine();
+                        Console.WriteLine("Number of Nights: ");
+                        int nights = int.Parse(Console.ReadLine()); ;
+                       
+                        if(nights <= 0)
+                        {
+                            Console.WriteLine("Error, Nights have to be positive.");
+                        }
+                        else
+                        {
+                            string guestID = "G" + (guests.Count + 1).ToString("000");
+                            Guest newGuest = new Guest(guestID, name, date, nights);
+                            guests.Add(newGuest);
+                            Console.WriteLine();
+                            Console.WriteLine($"Guest Details: \n- {newGuest.guestID}\n- {newGuest.guestName}\n- {newGuest.checkInDate}\n- {newGuest.totalNights}");
                         }
                     break;
                 }
