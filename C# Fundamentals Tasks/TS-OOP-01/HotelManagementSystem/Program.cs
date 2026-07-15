@@ -1,4 +1,6 @@
-﻿namespace HotelManagementSystem
+﻿using System.Reflection;
+
+namespace HotelManagementSystem
 {
     internal class Program
     {
@@ -258,9 +260,8 @@
                             default:
                                 Console.WriteLine("Invalid option.");
                             break;
-                        break;
                         }
-
+                    break;
                     case 7:
 
                         int totalGuests = guests.Count();
@@ -337,6 +338,26 @@
                             {
                                 roomFinder.pricePerNight = pPerNight;
                                 Console.WriteLine($"Price has been updated from {oldPrice} to {roomFinder.pricePerNight}");
+                            }
+                        }
+                    break;
+
+                    case 9:
+                        Console.WriteLine("Enter a Full / Patrial Name: ");
+                        string nameFinder = Console.ReadLine().ToLower();
+
+                        
+                        List<Guest> findGuest = guests.Where(g => g.guestName.ToLower().Contains(nameFinder)).ToList();
+                        if(findGuest.Count() == 0)
+                        {
+                            Console.WriteLine("No Guest Matched That Search.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Found Guests: {findGuest.Count()}");
+                            foreach(var guest in findGuest)
+                            {
+                                guest.displayGuest();
                             }
                         }
                     break;
