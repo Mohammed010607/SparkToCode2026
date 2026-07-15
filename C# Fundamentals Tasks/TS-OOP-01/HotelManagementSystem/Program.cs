@@ -157,6 +157,23 @@
 
                         }
                         break;
+
+                    case 5:
+                        if(guests.Count() == 0)
+                        {
+                            Console.WriteLine("No Guests Have Been Registered Yet.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Guest Count: {guests.Count()}");
+                            List<Guest> guestList = guests.OrderBy(g => g.guestName).ToList();
+                            foreach(var visitor in guestList)
+                            {
+                                visitor.displayGuest();
+                            }
+                        }
+
+                    break;
                 }
             }
             while(option != 0);
