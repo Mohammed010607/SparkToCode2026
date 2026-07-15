@@ -488,7 +488,40 @@ namespace HotelManagementSystem
                         }
                         break;
 
+                    case 13:
+                        Console.WriteLine("Enter Your Guest ID: ");
+                        string guestIdentifier = Console.ReadLine();
+                        Guest finder = guests.FirstOrDefault(g => g.guestID == guestIdentifier);
+                        if(finder == null)
+                        {
+                            Console.WriteLine("Error, Guest Not Found.");
+                        }
+                        else
+                        {
+                            if(finder.roomNumber == "Not Assigned")
+                            {
+                                Console.WriteLine("The Guest Doesnt't Have An Active Booking");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Enter The Number of Additional Nights: ");
+                                int additional = int.Parse(Console.ReadLine());
+                                if (additional <= 0)
+                                {
+                                    Console.WriteLine("Error, Additional Nights Must Be Positive.");
+                                }
+                                else
+                                {
+                                    finder.totalNights += additional;
+                                    Room targetRoom = rooms.FirstOrDefault(r => r.roomNumber.ToString() == finder.roomNumber);
+                                    double newCost = finder.calculateTotalCost(targetRoom.pricePerNight);
+                                    Console.WriteLine($"Updated Nights: {finder.totalNights}");
+                                    Console.WriteLine($"New Total Cost: {newCost:F2}");
+                                }
+                            }
+                        }
 
+                        break;
 
 
                 }
