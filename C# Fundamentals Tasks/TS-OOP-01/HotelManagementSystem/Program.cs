@@ -404,6 +404,51 @@ namespace HotelManagementSystem
                         Console.WriteLine($"Overall Average Price: {totalAvg:F2}");
 
                     break;
+
+                    case 11:
+                        Console.WriteLine("Enter Your Guest ID: ");
+                        string idGuest = Console.ReadLine();
+
+                        Guest checkout = guests.FirstOrDefault(g => g.guestID == idGuest);
+
+                        if(checkout == null)
+                        {
+                            Console.WriteLine("Error, Guest Not Found.");
+                        }
+                        else
+                        {
+                            Room checkoutRoom = rooms.FirstOrDefault(r => r.roomNumber.ToString() == checkout.roomNumber);
+
+                            double totCost = checkout.calculateTotalCost(checkoutRoom.pricePerNight);
+                            Console.WriteLine("------- Final Bill--------");
+                            Console.WriteLine($"Guest: {checkout.guestName}");
+                            Console.WriteLine($"Room: {checkoutRoom.roomNumber}");
+                            Console.WriteLine($"Room Type: {checkoutRoom.roomType}");
+                            Console.WriteLine($"Check-In Date: {checkout.checkInDate}");
+                            Console.WriteLine($"Nights: {checkout.totalNights}");
+                            Console.WriteLine($"Price/Night: {checkoutRoom.pricePerNight:F2}");
+                            Console.WriteLine($"Total: {totCost:F2}");
+
+                            Console.WriteLine("Confirm Checkout? (Y/N): ");
+                            string confirm = Console.ReadLine();
+
+                            if (confirm.ToUpper() == "Y")
+                            {
+                                checkoutRoom.isAvailable = true;
+                                guests.Remove(checkout);
+
+                                Console.WriteLine($"Checkout complete. Total guests remaining: {guests.Count()}");
+
+                                bool isNowAvailable = rooms.Any(r => r.roomNumber == checkoutRoom.roomNumber && r.isAvailable == true);
+                                Console.WriteLine($"Room {checkoutRoom.roomNumber} is now available: {isNowAvailable}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Checkout cancelled. No changes made.");
+                            }
+                        }
+
+                        break;
                     
                         
                         
