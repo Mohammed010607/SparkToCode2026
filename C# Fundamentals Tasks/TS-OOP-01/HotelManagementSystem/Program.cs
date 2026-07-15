@@ -362,7 +362,50 @@ namespace HotelManagementSystem
                         }
                     break;
 
+                    case 10:
+                        int singleAmount = rooms.Count(r => r.roomType == "Single");
+                        int doubleAmount = rooms.Count(r => r.roomType == "Double");
+                        int suiteAmount = rooms.Count(r => r.roomType == "Suite");
 
+                        Console.WriteLine($"Single: {singleAmount} rooms");
+                        if (singleAmount == 0)
+                        {
+                            Console.WriteLine("N/A");
+                        }
+                        else
+                        {
+                            double singleAvg = rooms.Where(r => r.roomType == "Single").Average(r => r.pricePerNight);
+                            Console.WriteLine($"Average Price: {singleAvg:F2}");
+                        }
+
+                        Console.WriteLine($"Double: {doubleAmount} rooms");
+                        if (doubleAmount == 0)
+                        {
+                            Console.WriteLine("N/A");
+                        }
+                        else
+                        {
+                            double doubleAvg = rooms.Where(r => r.roomType == "Double").Average(r => r.pricePerNight);
+                            Console.WriteLine($"Average Price: {doubleAvg:F2}");
+                        }
+
+                        Console.WriteLine($"Suite: {suiteAmount} rooms");
+                        if (suiteAmount == 0)
+                        {
+                            Console.WriteLine("N/A");
+                        }
+                        else
+                        {
+                            double suiteAvg = rooms.Where(r => r.roomType == "Suite").Average(r => r.pricePerNight);
+                            Console.WriteLine($"Average Price: {suiteAvg:F2}");
+                        }
+
+                        double totalAvg = rooms.Average(r => r.pricePerNight);
+                        Console.WriteLine($"Overall Average Price: {totalAvg:F2}");
+
+                    break;
+                    
+                        
                         
                 }
             }
